@@ -34,7 +34,8 @@ function CardGetter() {
   }
   `
   const H1 = styled.h1`
-  font-size: 3em;
+  font-size: 3.5em;
+  font-style: italic;
   `
 
   const Header = styled.div`
@@ -53,6 +54,36 @@ function CardGetter() {
   display: flex;
   justify-content: space-around;
   `
+
+  const PhotoCard = styled.div`
+   display: flex;
+   flex-flow: column wrap;
+  `
+
+  const TitleDate = styled.div`
+    display: flex;
+    flex-firection: row;
+    justify-content: space-around;
+  `
+
+  const BigImg = styled.img`
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: .5em double black;
+  `
+
+  const H3 = styled.h3`
+  font-size: 1.5em;
+  margin-bottom: .5%;
+  `
+
+  const P = styled.p`
+  width: 80;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: left;
+  `
   return (
   <div App>
     <Header className ='header'>
@@ -64,15 +95,15 @@ function CardGetter() {
         <Button className = 'dark-mode-Button'>Dark Mode</Button>
       </Nav>
     </Header>
-    <div className ='photoCard'>
-      <div className='titleDate'>
-      <h3 className='photoCardTitle'>{cardDetails.title}</h3>
-      <h3 className='photoCardDate'>{cardDetails.date}</h3>
-      </div> 
-      <img className='photoCardImg' src={cardDetails.hdurl}></img>
-      <p classname='photoCardDescription'>{cardDetails.explanation}</p>
-      <p className='photoCardCopyright'>{cardDetails.copyright}</p>   
-    </div>
+    <PhotoCard className ='photoCard'>
+      <TitleDate className='titleDate'>
+      <H3 className='photoCardTitle'>{cardDetails.title}</H3>
+      <H3 className='photoCardDate'>{cardDetails.date}</H3>
+      </TitleDate> 
+      <BigImg className='photoCardImg' src={cardDetails.hdurl}></BigImg>
+      <P classname='photoCardDescription'>{cardDetails.explanation}</P>
+      <P className='photoCardCopyright'>{cardDetails.copyright}</P>   
+    </PhotoCard>
   </div>
   )
 }
