@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import styled from "styled-components";
 
 function CardGetter() {
   const [cardDetails, setCardDetails] = useState([])
@@ -11,17 +12,58 @@ function CardGetter() {
       setCardDetails(response.data)
     })
   }, [])
+  const Button = styled.button`
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.2em solid black;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.15em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:black;
+  font-size: 1em;
+  background-color:white;
+  text-align:center;
+  transition: all 0.2s;
+  margin-bottom: 3%;
+  &: hover {
+    color:white;
+    background-color:black;
+  }
+  `
+  const H1 = styled.h1`
+  font-size: 3em;
+  `
+
+  const Header = styled.div`
+    border: .5em solid black;
+    display: flex;
+    flex-flow: column wrap;
+    width: 80%;
+    align-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    text-align: center;
+
+  `
+  const Nav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  `
   return (
   <div App>
-    <div className ='header'>
-      <h1 className = 'title'>NASA Photo Of The Day</h1>
-      <nav>
-        <button className = 'home-button'>Home</button>
-        <button className = 'contact-button'>Contact</button>
-        <button className = 'random-button'>Get Random</button>
-        <button className = 'dark-mode-button'>Dark Mode</button>
-      </nav>
-    </div>
+    <Header className ='header'>
+      <H1 className = 'title'>NASA Photo Of The Day</H1>
+      <Nav>
+        <Button className = 'home-Button'>Home</Button>
+        <Button className = 'contact-Button'>Contact</Button>
+        <Button className = 'random-Button'>Get Random</Button>
+        <Button className = 'dark-mode-Button'>Dark Mode</Button>
+      </Nav>
+    </Header>
     <div className ='photoCard'>
       <div className='titleDate'>
       <h3 className='photoCardTitle'>{cardDetails.title}</h3>
